@@ -19,4 +19,5 @@ public class SolicitarLavagemRequestDto {
     private EnderecoDto endereco;
     @NotBlank
     private String servicoUuid;
+    private String premiacao;
 }

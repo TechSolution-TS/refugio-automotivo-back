@@ -47,7 +47,7 @@ public class SolicitacaoService {
         solicitacaoRepository.save(sol);
 
         try {
-            telegramNotificationService.enviarNotificacaoNovaSolicitacao(usuario, endereco, servico);
+            telegramNotificationService.enviarNotificacaoNovaSolicitacao(usuario, endereco, servico, req.getPremiacao());
         } catch (Exception e) {
             System.err.println("Erro ao enviar notificação Telegram: " + e.getMessage());
         }

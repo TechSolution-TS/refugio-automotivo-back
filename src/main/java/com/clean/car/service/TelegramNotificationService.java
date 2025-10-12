@@ -23,9 +23,9 @@ public class TelegramNotificationService {
     private final RestTemplate restTemplate = new RestTemplate();
 
     @Async
-    public void enviarNotificacaoNovaSolicitacao(Usuario user, Endereco endereco, Servico servico) {
+    public void enviarNotificacaoNovaSolicitacao(Usuario user, Endereco endereco, Servico servico, String premiacao) {
         try {
-            String mensagem = construirMensagemSolicitacao(user, endereco, servico);
+            String mensagem = construirMensagemSolicitacao(user, endereco, servico, premiacao);
             enviarMensagem(mensagem);
         } catch (Exception e) {
             log.error("Erro ao enviar notificação Telegram: {}", e.getMessage(), e);
@@ -44,7 +44,7 @@ public class TelegramNotificationService {
         restTemplate.getForObject(url, String.class);
     }
 
-    private String construirMensagemSolicitacao(Usuario user, Endereco endereco, Servico servico) {
+    private String construirMensagemSolicitacao(Usuario user, Endereco endereco, Servico servico, String premiacao) {
         StringBuilder msg = new StringBuilder();
         msg.append("🚗 *NOVA SOLICITAÇÃO - REFUGIO AUTOMOTIVO* 🚗\n\n");
 
@@ -55,7 +55,11 @@ public class TelegramNotificationService {
 
         msg.append("🧼 *SERVIÇO SOLICITADO*\n");
         msg.append("✨ Serviço: *").append(servico.getNome()).append("*\n");
-        msg.append("💰 Valor: *R$ ").append(String.format("%.2f", servico.getPreco())).append("*\n\n");
+        msg.append("💰 Valor: *R$ ").append(String.format("%.2f", servico.getPreco())).append("*\n");
+
+        if (!premiacao.isEmpty()) {
+            msg.append("🎁 Premiação: * ").append(premiacao.replace("\"", "")).append("*\n\n");
+        }
 
         msg.append("📍 *ENDEREÇO DE COLETA*\n");
         msg.append("🏠 ").append(endereco.getEndereco()).append(", ").append(endereco.getNumero()).append("\n");
@@ -66,10 +70,6 @@ public class TelegramNotificationService {
         }
 
         msg.append("\n⏰ *Aguardando confirmação!*");
-        msg.append("\n\n_Solicitação recebida em: ").append(java.time.LocalDateTime.now().format(
-                java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")
-        )).append("_");
-
         return msg.toString();
     }
 

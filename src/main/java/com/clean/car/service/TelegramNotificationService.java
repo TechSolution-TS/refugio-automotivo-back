@@ -55,10 +55,12 @@ public class TelegramNotificationService {
 
         msg.append("🧼 *SERVIÇO SOLICITADO*\n");
         msg.append("✨ Serviço: *").append(servico.getNome()).append("*\n");
-        msg.append("💰 Valor: *R$ ").append(String.format("%.2f", servico.getPreco())).append("*\n");
 
         if (!premiacao.isEmpty()) {
+            msg.append("💰 Valor: *R$ ").append(String.format("%.2f", servico.getPreco())).append("*\n");
             msg.append("🎁 Premiação: * ").append(premiacao.replace("\"", "")).append("*\n\n");
+        } else {
+            msg.append("💰 Valor: *R$ ").append(String.format("%.2f", servico.getPreco())).append("*\n\n");
         }
 
         msg.append("📍 *ENDEREÇO DE COLETA*\n");

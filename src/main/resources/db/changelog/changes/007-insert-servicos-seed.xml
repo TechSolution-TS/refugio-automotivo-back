@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+          http://www.liquibase.org/xml/ns/dbchangelog
+          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="007-insert-servicos-seed" author="lucas">
+        <sql>
+            INSERT INTO car.servicos
+            ("uuid", nome, preco, descricao, descricao_completa, destaques, tempo, tipo)
+            VALUES('9cf49e47-6c05-4c5c-bc60-be2338ae2f04', 'Lavagem Simples Caminhonete', 60.00, 'Brilho rápido para o dia a dia: lavagem externa + aspiração interna + pneus limpinhos. Seu carro renovado por dentro e por fora em pouco tempo!', 'A Lavagem Simples deixa seu carro com cara de novo sem complicação. Fazemos a limpeza externa para tirar poeira e respingos, aspiramos o interior (bancos, tapetes e porta-malas) e lavamos os pneus, garantindo um visual impecável. Ideal para quem quer praticidade e resultado na rotina.', '- Externa caprichada (remoção de poeira, lama e manchas leves)\n- Aspiração interna detalhada (bancos, tapetes e porta-malas)\n- Limpeza dos pneus para um acabamento uniforme\n- Finalização com cheirinho agradável', '50-60 min', 'limpeza');
+
+            INSERT INTO car.servicos
+            ("uuid", nome, preco, descricao, descricao_completa, destaques, tempo, tipo)
+            VALUES('29da90b2-b650-4aba-86f5-f32de2d1a81d', 'Lavagem Simples SUV', 40.00, 'Brilho rápido para o dia a dia: lavagem externa + aspiração interna + pneus limpinhos. Seu carro renovado por dentro e por fora em pouco tempo!', 'A Lavagem Simples deixa seu carro com cara de novo sem complicação. Fazemos a limpeza externa para tirar poeira e respingos, aspiramos o interior (bancos, tapetes e porta-malas) e lavamos os pneus, garantindo um visual impecável. Ideal para quem quer praticidade e resultado na rotina.', '- Externa caprichada (remoção de poeira, lama e manchas leves)\n- Aspiração interna detalhada (bancos, tapetes e porta-malas)\n- Limpeza dos pneus para um acabamento uniforme\n- Finalização com cheirinho agradável', '40-50 min', 'limpeza');
+
+            INSERT INTO car.servicos
+            ("uuid", nome, preco, descricao, descricao_completa, destaques, tempo, tipo)
+            VALUES('19f6857a-d147-48ee-aa09-619650e3c965', 'Lavagem Completa Caminhonete', 70.00, 'Brilho profundo e proteção prolongada: lavagem completa + aspiração interna + pneus + aplicação de cera para proteger a pintura por semanas.', 'Nossa Lavagem com Cera entrega um acabamento de vitrine. Além da limpeza externa e da aspiração interna completa, aplicamos cera de alta performance que realça a cor, cria efeito repelente à água e protege a pintura contra sol e sujeira do dia a dia. É brilho, proteção e toque aveludado que você vê e sente.', '- Limpeza externa criteriosa + aspiração interna completa \n- Lavagem dos pneus e acabamento \n- Aplicação de cera para brilho intenso e proteção UV \n- Efeito repelente à água e sujeira (mais fácil de manter limpo)', '70-80 min', 'limpeza');
+
+            INSERT INTO car.servicos
+            ("uuid", nome, preco, descricao, descricao_completa, destaques, tempo, tipo)
+            VALUES('90e0a024-ba32-4b02-bd0a-f5e0c964d205', 'Lavagem Completa SUV', 60.00, 'Brilho profundo e proteção prolongada: lavagem completa + aspiração interna + pneus + aplicação de cera para proteger a pintura por semanas.', 'Nossa Lavagem com Cera entrega um acabamento de vitrine. Além da limpeza externa e da aspiração interna completa, aplicamos cera de alta performance que realça a cor, cria efeito repelente à água e protege a pintura contra sol e sujeira do dia a dia. É brilho, proteção e toque aveludado que você vê e sente.', '- Limpeza externa criteriosa + aspiração interna completa \n- Lavagem dos pneus e acabamento \n- Aplicação de cera para brilho intenso e proteção UV \n- Efeito repelente à água e sujeira (mais fácil de manter limpo)', '50-60 min', 'limpeza');
+
+            INSERT INTO car.servicos
+            ("uuid", nome, preco, descricao, descricao_completa, destaques, tempo, tipo)
+            VALUES('c3b6804a-2d2e-4f9a-8e88-7f3baf8b3a2e', 'Revisão Carro', 199.90, 'Checklist completo de segurança e desempenho: inspeção dos principais sistemas, leitura OBD-II, calibração e recomendações para rodar com tranquilidade.', 'Nossa Revisão de Carro realiza uma avaliação detalhada dos sistemas essenciais do veículo. Verificamos freios, suspensão, direção, arrefecimento, parte elétrica e níveis de fluidos, além de leitura OBD-II para identificar códigos de falha. Entregamos um relatório com orientações priorizadas. Trocas de peças e fluidos não estão inclusas.', '- Checklist de 30+ itens (freios, suspensão, direção, arrefecimento)\n- Leitura OBD-II e análise de códigos de falha\n- Verificação de fluidos e possíveis vazamentos\n- Calibração de pneus e inspeção visual externa\n- Relatório com recomendações imediatas', '90-120 min', 'manutencao');
+
+            INSERT INTO car.servicos
+            ("uuid", nome, preco, descricao, descricao_completa, destaques, tempo, tipo)
+            VALUES('0f9a2f30-5e50-4ba8-91a4-1da955f78d62', 'Revisão Moto', 149.90, 'Inspeção completa para sua moto: verificação de freios, corrente, pneus, elétrica e fluidos, com ajustes básicos e relatório final.', 'A Revisão de Moto foca em segurança e desempenho no dia a dia. Conferimos freios, pneus, rodas, corrente e relação (com lubrificação/ajuste), iluminação, bateria e níveis de fluidos. Quando aplicável, realizamos diagnóstico eletrônico. Entregamos um relatório com recomendações. Trocas de peças e fluidos não estão inclusas.', '- Checklist de 25+ itens (freios, corrente, pneus, iluminação)\n- Ajuste e lubrificação da corrente\n- Verificação de fluidos (motor e freio)\n- Inspeção elétrica básica e bateria\n- Relatório com recomendações de manutenção', '60-90 min', 'manutencao');
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

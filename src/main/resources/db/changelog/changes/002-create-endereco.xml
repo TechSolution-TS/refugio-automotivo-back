@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+          http://www.liquibase.org/xml/ns/dbchangelog
+          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="002-create-endereco" author="lucas">
+        <createTable tableName="endereco">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="uuid" type="VARCHAR(40)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+
+            <column name="endereco" type="VARCHAR(160)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="bairro" type="VARCHAR(80)"/>
+
+            <column name="numero" type="VARCHAR(20)"/>
+
+            <column name="complemento" type="VARCHAR(160)"/>
+        </createTable>
+
+        <addAutoIncrement tableName="endereco" columnName="id" columnDataType="BIGINT"/>
+
+        <createIndex indexName="idx_endereco_uuid" tableName="endereco">
+            <column name="uuid"/>
+        </createIndex>
+    </changeSet>
+
+</databaseChangeLog>

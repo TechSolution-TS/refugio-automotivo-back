@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+          http://www.liquibase.org/xml/ns/dbchangelog
+          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="004-create-solicitacoes" author="lucas">
+        <createTable tableName="solicitacoes">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="uuid" type="VARCHAR(40)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+
+            <column name="usuario_uuid" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="servico_uuid" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="data_criacao" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP"/>
+        </createTable>
+
+        <addAutoIncrement tableName="solicitacoes" columnName="id" columnDataType="BIGINT"/>
+    </changeSet>
+
+</databaseChangeLog>

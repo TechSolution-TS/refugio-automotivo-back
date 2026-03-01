@@ -14,4 +14,5 @@
     <include file="db/changelog/changes/005-add-tipo-to-servicos.xml"/>
     <include file="db/changelog/changes/006-add-tipo-to-solicitacoes.xml"/>
     <include file="db/changelog/changes/007-insert-servicos-seed.xml"/>
+    <include file="db/changelog/changes/008-create-barber.xml"/>
 </databaseChangeLog>

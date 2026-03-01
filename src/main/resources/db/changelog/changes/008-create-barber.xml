@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+          http://www.liquibase.org/xml/ns/dbchangelog
+          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="008-create-barber" author="lucas">
+        <createTable tableName="barbearia">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="uuid" type="VARCHAR(40)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+
+            <column name="cpf" type="VARCHAR(14)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+
+            <column name="nome" type="VARCHAR(120)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="telefone" type="VARCHAR(20)"/>
+
+            <column name="endereco" type="TEXT"/>
+
+            <column name="idade" type="int"/>
+
+            <column name="data_criacao" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP"/>
+        </createTable>
+
+        <addAutoIncrement tableName="barbearia" columnName="id" columnDataType="BIGINT"/>
+
+    </changeSet>
+
+</databaseChangeLog>
